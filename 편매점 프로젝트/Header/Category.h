@@ -5,9 +5,9 @@
 class Category {
 public: 
 	Category() {
-		Rectangle(3, 4, 100, 5); // ¡Ú Category ¡Ú°¡ ÀÖ´Â ³×¸ð Ä­
-		Rectangle(104, 13); // ±×¸²ÀÖ´Â Ä«Å×°í¸®
-		Text(); // ±Û¾¾µé
+		Rectangle(3, 4, 100, 5); // â˜… Category â˜…ê°€ ìžˆëŠ” ë„¤ëª¨ ì¹¸
+		Rectangle(104, 13); // ê·¸ë¦¼ìžˆëŠ” ì¹´í…Œê³ ë¦¬
+		Text(); // ê¸€ì”¨ë“¤
 
 		SnackImage();
 		DrinkImage();
