@@ -9,12 +9,12 @@ public:
 		Rectangle(104, 13); // 그림있는 카테고리
 		Text(); // 글씨들
 
-		SnackImage();
-		DrinkImage();
-		BreadImage();
+		SnackImage(); // 과자 그림 출력
+		DrinkImage(); // 음료수 그림 출력
+		BreadImage(); // 빵 그림 출력
 
-		IcecreamImage();
-		Etc();
+		IcecreamImage(); // 아이스크림 그림 출력
+		Etc(); // 등등 그림 출력
 	}
 	void Rectangle(int x, int y);
 	void Rectangle(int x, int y, int width, int height);
