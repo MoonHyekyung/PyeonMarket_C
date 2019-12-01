@@ -9,7 +9,7 @@ int x, y; // 현재 좌표 위치
 
 // →:77   ←:75     ↑:72    ↓:80
 void gotoxy(int a, int b) {
-	COORD Pos = {(short) (a - 1),(short)(b - 1) };
+	COORD Pos = { (short)(a - 1),(short)(b - 1) };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
