@@ -9,7 +9,7 @@ int x, y; // 현재 좌표 위치
 
 // →:77   ←:75     ↑:72    ↓:80
 void gotoxy(int a, int b) {
-	COORD Pos = {(short) (a - 1),(short)(b - 1) };
+	COORD Pos = { (short)(a - 1),(short)(b - 1) };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
@@ -48,7 +48,7 @@ void box2() { //상자 그리기 (편매점 로고 그릴때 사용)
 
 void display() { // 편매점 로고
 	//box2();
-    box2();
+	box2();
 	gotoxy(14, 6);
 	printf("                    ■                       ■      ■");
 	gotoxy(14, 7);
@@ -99,11 +99,11 @@ int menudrow() {
 
 	x = 50;
 	y = 23;
-	gotoxy(x + 1 , y);
+	gotoxy(x + 1, y);
 	cout << "편매점 이용"; // y==23
-	gotoxy(x + 1 , y + 2); //y ==25
+	gotoxy(x + 1, y + 2); //y ==25
 	cout << "이용 방법";
-	gotoxy(x + 1 , y + 4); // y==27
+	gotoxy(x + 1, y + 4); // y==27
 	cout << "종 료";
 
 	gotoxy(x - 2, y); // 처음에 선택 키 보이게 하기 위해서 
@@ -111,8 +111,8 @@ int menudrow() {
 
 	while (1) {//무한반복
 		int n = keyControl(); // 입력 받은 키
-		switch (n){
-		case UP: { 
+		switch (n) {
+		case UP: {
 			if (y > 24) {
 				gotoxy(x - 2, y);
 				cout << " ";
@@ -159,7 +159,7 @@ int ChooseLocation() {
 					cout << "    ";
 					x = x - 60;
 					gotoxy(x, y);
-					cout << "▲" ;
+					cout << "▲";
 				} // if
 				break;
 			} // case LEFT
@@ -170,7 +170,7 @@ int ChooseLocation() {
 					cout << "    ";
 					x += 60;
 					gotoxy(x, y);
-					cout << "▲" ;
+					cout << "▲";
 				} // if
 				break;
 			} // case RIGHT
@@ -243,9 +243,9 @@ int main() {
 				{Choose c = Choose(1); } // Choose 객체 생성 (Choose화면 출력)
 				int Choose_XLocation = ChooseLocation(); // ▲움직이기, ▲키가 멈춘 위치 받기(Choose)
 				if (Choose_XLocation == 26) { // 카테고리 위치에서 엔터가 되었을 시 true
-						system("cls"); // 화면지우기
-						Category cate = Category(); // Category 객체 생성 (Category 화면 출력) 
-						int Category_XLocation = CategoryLocation(); // ▲움직이기, ▲키가 멈춘 위치 받기(Category)
+					system("cls"); // 화면지우기
+					Category cate = Category(); // Category 객체 생성 (Category 화면 출력) 
+					int Category_XLocation = CategoryLocation(); // ▲움직이기, ▲키가 멈춘 위치 받기(Category)
 				}
 				else if (Choose_XLocation == 86) { // 검색 위치에서 엔터가 되었을 시 true
 					system("cls"); // 화면 지우기
@@ -258,7 +258,7 @@ int main() {
 				Rectangle(100, 23); // 사각형 틀 출력
 				WayText(); // 이용방법 출력
 				break;
-				} // case 25
+			} // case 25
 			} // switch (y)
 			if (y == 27) break;
 
