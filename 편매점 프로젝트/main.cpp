@@ -1,8 +1,7 @@
-﻿#include "intro.h"
-#include "HowToUse.h"
+﻿#include "HowToUse.h"
 #include "Choose.h"
 #include "Category.h"
-
+#include "Search.h"
 
 using namespace std;
 
@@ -10,7 +9,7 @@ int x, y; // 현재 좌표 위치
 
 // →:77   ←:75     ↑:72    ↓:80
 void gotoxy(int a, int b) {
-	COORD Pos = {(short) (a - 1),(short)(b - 1) };
+	COORD Pos = { (short)(a - 1),(short)(b - 1) };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
@@ -227,6 +226,7 @@ int CategoryLocation() {
 }
 
 int main() {
+	system(" mode  con lines=30   cols=120 "); // 높이 30, 너비 120 콘솔 설정
 	display(); //편매점 로고 출력
 	gotoxy(50, 25); // Enter키를 누르시오. 위치 지정
 	cout << "Enter키를 누르시오." << endl;
@@ -234,18 +234,22 @@ int main() {
 	while (1) {
 		if (_getch() == 13) { // Enter키가 눌리면 화면 변경
 			system("cls"); //편매점 로고와 Enter키를 누르시오. 삭제
-
+			system(" mode  con lines=30   cols=120 "); // 높이 30, 너비 120 콘솔 설정
 			display(); //로고 다시 출력
 			menudrow(); // 메뉴 선택
 
 			switch (y) {
 			case 23: { // 입력받은 y 위치가 23 일시 Choose 클래스(사용 시작) 으로 넘어감
-				{Choose c = Choose(); } // Choose 객체 생성 (Choose화면 출력)
+				{Choose c = Choose(1); } // Choose 객체 생성 (Choose화면 출력)
 				int Choose_XLocation = ChooseLocation(); // ▲움직이기, ▲키가 멈춘 위치 받기(Choose)
 				if (Choose_XLocation == 26) { // 카테고리 위치에서 엔터가 되었을 시 true
 						system("cls"); // 화면지우기
 						Category cate = Category(); // Category 객체 생성 (Category 화면 출력) 
 						int Category_XLocation = CategoryLocation(); // ▲움직이기, ▲키가 멈춘 위치 받기(Category)
+				}
+				else if (Choose_XLocation == 86) { // 검색 위치에서 엔터가 되었을 시 true
+					system("cls"); // 화면 지우기
+					Search search = Search();
 				}
 				break;
 			}// case 23
